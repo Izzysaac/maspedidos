@@ -1,0 +1,27 @@
+---
+import { pages } from "astro/hono"
+
+
+const header = {
+    logo: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783862653/logotipo-maspedidos_pgooyn-ajustado.webp",
+    menu: [ {page: "precios"}, {page: "demo"}, {page: "contacto"}]
+}
+
+---
+
+<header class="flex px-4 box-border">
+    <img src={header.logo} alt="logotipo" class="w-28 object-contain">
+    <menu>
+        <ul class="list-none flex gap-4">
+            {
+                header.menu.map(item => {
+                    return (
+                        <li>
+                            <a href={item.page} class="no-underline text-black capitalize hover:underline">{item.page}</a>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+    </menu>
+</header>
