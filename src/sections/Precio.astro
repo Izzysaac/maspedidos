@@ -1,0 +1,140 @@
+---
+import Promocion from "@components/Promocion.astro";
+import RegaloSVG from "@assets/regalo.svg";
+
+import TickSvg from "@assets/tick.svg";
+import CrossSvg from "@assets/cross.svg";
+
+const squareLogo =
+    "https://res.cloudinary.com/dr5knskbb/image/upload/v1783922991/logosquare-maspedidos_eze2rk.webp";
+
+const offers = [
+    { name: "Inicial", discount: "$800.000", price: "$500.000" },
+    { name: "Avanzado", discount: "$1.400.000", price: "$1.000.000" },
+    { name: "Experto + Estrategia", discount: "$2.000.000", price: "$1.500.000"}
+];
+const features = [
+    { name: "Menú digital + QR", offer: 0 },
+    { name: "Pedidos por Whatsapp", offer: 0 },
+    { name: "Sin comisiones", offer: 0 },
+    { name: "Sistemas de Reservas", offer: 0 },
+    { name: "Promoción de Eventos", offer: 0 },
+    { name: "Perfil Google Maps", offer: 0 },
+    { name: "Dominio web (adicional)", offer: 0 },
+    { name: "Personalización avanzada", offer: 1 },
+    { name: "Configuración de anuncios", offer: 1 },
+    { name: "Sistema de fidelización", offer: 1 },
+    { name: "Estrategia de publicidad", offer: 2 },
+    { name: "Estrategia de reputación", offer: 2 },
+    { name: "Estrategia de crecimiento", offer: 2 },
+];
+---
+
+<section
+    id="precios"
+    class="bg-red-700 text-white flex flex-col justify-center items-center py-12"
+>
+    <p class="text-lg m-0">Precios</p>
+    <h2 class="text-center">
+        <span class="inline-block"> Más fácil para tus clientes. </span>
+        <span class="inline-block"> Más pedidos para tu negocio. </span>
+    </h2>
+    <p
+        class="flex flex-row gap-1 text-red-700 bg-white px-1 py-1 font-extrabold mt-0 text-sm"
+    >
+        <RegaloSVG class="w-5 h-5 animate-pulse fill-red-700" />
+        <span>¡Oferta de julio 3 meses gratis!</span>
+    </p>
+    <!-- <Promocion /> -->
+    <div class="flex flex-col gap-8">
+        {
+            offers.map((offer, index) => {
+                return (
+                    <div class="bg-white text-black p-8 rounded-md flex flex-col gap-4" class:list={[{"border-4 border-yellow-300 shadow-lg shadow-yellow-400/50" : index == 2}]}>
+                        <p class="font-extrabold m-0 text-lg">{offer.name}</p>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-2">
+                                <p class="line-through text-sm m-0">{offer.discount}</p>
+                                <p class="font-extrabold text-2xl m-0">{offer.price}</p>
+                                <p class="m-0">COP</p>
+                            </div>
+                            <p class="m-0">*Pago por instalación</p>
+                        </div>
+                        <div>
+                            <ul class="list-none m-0 p-0">
+                                {
+                                    features.map((feature) => {
+                                        if (feature.offer <= index) {
+                                            return (
+                                                <li class="flex items-center gap-2">
+                                                    <TickSvg class="w-5 h-5" /> {feature.name}
+                                                </li>
+                                            );
+                                        } else {
+                                            return (
+                                                <li class="flex items-center gap-2 opacity-60">
+                                                    <CrossSvg class="w-5 h-5" /> {feature.name}
+                                                </li>
+                                            );
+                                        }
+                                    })
+                                }
+                            </ul>
+                        </div>
+                        <div>
+                            <a href={`https://wa.me/573163896572?text=Hola,%20quiero%20implementar%20el%20plan%20${offer.name}%20de%20M%C3%A1s%20Pedidos%20para%20mi%20negocio📈`} target="_blank" class="bg-[#a41c1c] text-white font-extrabold border-0 rounded-xl px-8 py-3 text-base flex justify-center items-center gap-2 w-full box-border">
+                                <img
+                                    src={squareLogo}
+                                    alt="logotipo mas pedidos"
+                                    class="w-6"
+                                />
+                                <span>Quiero más pedidos</span>
+                            </a>
+                            <p class="text-sm mt-2 text-center">
+                                Mantenimiento de 50.000 COP/mes
+                            </p>
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+
+    <!-- <div class="bg-white text-black p-8 rounded-md">
+        <p class="font-extrabold m-0 text-lg">Inicial</p>
+        <div class="flex items-center gap-2">
+            <p class="line-through text-sm m-0">$800.000</p>
+            <p class="font-extrabold text-2xl m-0">$500.000</p>
+            <p class="m-0">COP</p>
+        </div>
+        <div>
+            <ul class="list-none p-0">
+                {
+                    featuresInc.map((item) => {
+                        return (
+                            <li class="flex items-center gap-2">
+                                <TickSvg class="w-5 h-5" /> {item}
+                            </li>
+                        );
+                    })
+                }
+                {
+                    featuresNoInc.map((item) => {
+                        return (
+                            <li class="flex items-center gap-2 opacity-60">
+                                <CrossSvg class="w-5 h-5" /> {item}
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        </div>
+        <button
+            class="bg-[#a41c1c] text-white font-extrabold border-0 rounded-xl px-8 py-3 text-base flex justify-center items-center gap-2 w-full"
+        >
+            <img src={squareLogo} alt="logotipo mas pedidos" class="w-6" />
+            <span>Quiero más pedidos</span>
+        </button>
+        <p class="text-sm mt-2">Pago de instalación. Luego 50.000 COP/mes</p>
+    </div> -->
+</section>

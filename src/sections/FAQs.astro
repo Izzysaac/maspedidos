@@ -1,0 +1,29 @@
+---
+
+const faqs = [
+    {question: "Pregunta 1", answer: "Respuesta 1"},
+    {question: "Pregunta 2", answer: "Respuesta 2"},
+    {question: "Pregunta 3", answer: "Respuesta 3"},
+    {question: "Pregunta 4", answer: "Respuesta 4"},
+    {question: "Pregunta 5", answer: "Respuesta 5"},
+
+]
+
+---
+
+<section>
+    <h2>Preguntas frecuentes</h2>
+    <div>
+        {
+            faqs.map(item => {
+                return (
+                    <details>
+                        <summary>{item.question}</summary>
+                        {item.answer}
+                    </details>
+                )
+            })
+        }
+    </div>
+    <p>Tienes alguna otra pregunta? Contactame por <a href="https://wa.me/573163896572" target="_blank">Whatsapp</a></p>
+</section>

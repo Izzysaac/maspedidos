@@ -1,7 +1,12 @@
 ---
-import Header from '@sections/Header.astro';
-import Hero from '@components/Hero.astro';
 import Layout from '@layouts/Layout.astro';
+
+import Header from '@sections/Header.astro';
+import Footer from '@sections/Footer.astro';
+
+import Hero from '@components/Hero.astro';
+import Precio from '@sections/Precio.astro';
+import FAQs from '@sections/FAQs.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -9,9 +14,11 @@ import Layout from '@layouts/Layout.astro';
 
 <Layout>
 	<Header />
-	<main>
+	<main class="m-auto">
 		<Hero />
 
+		<Precio />
+		<FAQs />
 	</main>
 	<!-- SocialProof
 	Problem
@@ -22,8 +29,9 @@ import Layout from '@layouts/Layout.astro';
 	Case of Use
 	Img Captures 
 	Testimonials
+	Us vs Them
 	FAQs
 	Last Blog Posts
-	Us vs Them
 	CTA -->
+	<Footer />
 </Layout>
