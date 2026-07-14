@@ -20,8 +20,11 @@ const testimonials = [
 
 <section class="text-center flex flex-col justify-center items-center px-3 m-auto lg:flex-row lg:gap-4 pb-12">
     <div class="flex flex-col justify-center items-center gap-4 w-full">
-        <div class=`bg-[url("${banner}")] aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
+        <div 
+        style={{backgroundImage: `url(${banner})`}}
+        class=` aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
         </div>
+        <!-- bg-[url("${banner}")] -->
         <h1 class="font-extrabold flex flex-col mt-0">
             <span>Vende más domicilios</span>
             <span>para&nbsp;
