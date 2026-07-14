@@ -1,0 +1,80 @@
+---
+
+const logo = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783920052/maspedidos-logotipo_aqeax5.webp"
+
+const UsVsThem = [
+    {name: "Menú digital", us: true, them: true},
+    {name: "Captación de clientes", us: true, them: true },
+    {name: "Sin comisión por pedido", us: true, them: false},
+    {name: "Diseño personalizado", us: true, them: false},
+    {name: "Marca propia", us: true, them: false},
+    {name: "Presencia en Google", us: true, them: false},
+    {name: "Soporte técnico", us: true, them: false},
+    {name: "Gestión de domiciliarios", us: false, them: true},
+    {name: "Sistema POS", us: false, them: false},
+]
+
+import CheckSVG from "@assets/checkIcon.svg"
+import CrossSVG from "@assets/crossIcon.svg"
+
+---
+
+<section class="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center">
+            <p class="m-0">Diferencias</p>
+            <h2 class="text-slate-900 text-lg">
+                <span>No dependas de una app para vender</span>
+                <span> Construye <span class="font-extrabold">tu propio canal</span> de ventas</span>
+            </h2>
+        </div>
+
+        <!-- Comparison Table Container -->
+        <div
+            class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100"
+        >
+            <table class="w-full text-left border-collapse">
+                <!-- Table Head -->
+                <thead>
+                    <tr class="border-b border-slate-200 bg-slate-100/50">
+                        <th
+                            class="p-2 sm:p-6 text-sm font-semibold text-slate-500 w-1/3"
+                            ></th
+                        >
+                        <!-- Us Column (Highlighted) -->
+                        <th
+                            class="p-2 sm:p-6 text-base font-bold text-blue-600 bg-blue-50/50 text-center w-1/3 border-x border-blue-100"
+                        >
+                            <img src={logo} alt="" class="w-25">
+                        </th>
+                        <th
+                            class="p-2 sm:p-6 text-sm font-semibold text-slate-500 text-center w-1/3"
+                            >Apps Delivery</th
+                        >
+                    </tr>
+                </thead>
+
+                <!-- Table Body -->
+                <tbody class="divide-y divide-slate-100 text-sm sm:text-base">
+                    <!-- Row 1 -->
+                    {
+                        UsVsThem.map(item => {
+                            return (
+                                <tr>
+                                    <td class="px-4 py-3 sm:p-6 text-base text-slate-900">{item.name}</td>
+                                    <td class="bg-blue-50/30 border-x border-blue-100">
+                                        {item.us  ? <CheckSVG class="w-5 h-5 text-emerald-500 block m-auto"/> : <CrossSVG class="w-5 h-5 text-rose-400 block m-auto"/>} 
+                                    </td>
+                                    <td>
+                                        {item.them  ? <CheckSVG class="w-5 h-5 text-emerald-500 block m-auto"/> : <CrossSVG class="w-5 h-5 text-rose-400 block m-auto"/>} 
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

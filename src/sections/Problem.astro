@@ -1,0 +1,75 @@
+---
+import ArrowBottomSVG from "@assets/arrow-bottom.svg"
+const logo = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783922991/logosquare-maspedidos_eze2rk.webp"
+
+const solutions = [
+    {name: "Pedidos organizados", description: "Recibe pedidos completos y estructurados directamente en WhatsApp.", icon: "order"},
+    {name: "Tu propio canal de ventas", description: "Una página personalizada, sin comisiones y con tu marca.", icon: "deal"},
+    {name: "Más fácil para tus clientes", description: "Un menú digital intuitivo para pedir en pocos pasos.", icon: "happy-face"},
+
+]
+const cardsColors = ["#212121", "#2b2b2b", "#363636"]
+
+import DealSVG from "@assets/deal.svg"
+import HappyFaceSVG from "@assets/happy-face.svg"
+import OrderSVG from "@assets/order.svg"
+import { transform } from "astro:schema"
+
+---
+
+<section class="py-12 px-3 bg-slate-900 text-white text-center">
+    <h2>Problemas que te hacen <br> perder pedidos</h2>
+    <div class="px-3 py-8 bg-red-900/50 w-fit m-auto rounded-md">
+        <ul class="p-0 text-neutral-200 leading-8 w-fit flex flex-col items-center justify-center m-auto">
+            <li class="list-none">
+                <span class="text-red-400 font-medium">Caos</span> de pedidos en hora
+                pico
+            </li>
+            <li class="list-none">
+                Chats <span class="text-red-400 font-medium"
+                    >largos y repetitivos</span>
+            </li>
+            <li class="list-none">
+                Precios <span class="text-red-400 font-medium">altos</span> por intermediarios
+            </li>
+            <li class="list-none">
+                <span class="text-red-400 font-medium">Dependencia</span> de apps
+                delivery
+            </li>
+            <li class="list-none">
+                Horas muertas <span class="text-red-400 font-medium"
+                    >sin pedidos</span>
+            </li>
+        </ul>
+        <p class="font-semibold">
+            <span class="text-red-400">+ Problemas tediosos </span><span
+                class="line-through">que impiden crecer</span>
+        </p>
+    </div>
+    <p class="flex items-center justify-center mt-8"><ArrowBottomSVG class="w-7 h-7"/>Hay una manera más fácil</p>
+
+    <img src={logo} alt="logotipo mas pedidos" class="w-50 rounded-3xl mt-12">
+    <h2>Agiliza tu servicio automatizando procesos</h2>
+    <div class="flex justify-center">
+        {
+            solutions.map( (solution, index) => {
+                const cardColor = cardsColors[index];
+                const offsetClass = index > 0 ? '-ml-1' : '';
+                const rotation = index == 0 ? 'rotateZ(-2deg)' : index == 1 ? 'rotateZ(0deg)' : 'rotateZ(2deg)';
+                return (
+                    <div 
+                    style={{ backgroundColor: cardColor, transform: rotation }} 
+                    class={`py-8 rounded-2xl w-4/12 ${offsetClass} shadow-white/20 shadow-md transform-[rotateZ(${rotation}deg)] transform-[rotateZ(10deg)] max-w-50`} >
+                        <div class="bg-red-700 w-fit m-auto flex justify-center items-center p-1 rounded-md">
+                            { solution.icon === "order" && <OrderSVG class="w-10 h-10"/> }
+                            { solution.icon === "deal" && <DealSVG class="w-10 h-10"/> }
+                            { solution.icon === "happy-face" && <HappyFaceSVG class="w-10 h-10"/> }
+                        </div>
+                        <p class="font-bold text-[15px] md:text-xl px-1">{solution.name}</p>
+                        <p class="text-sm px-2 md:text-base">{solution.description}</p>
+                    </div>
+                )
+            })
+        }
+    </div>
+</section>

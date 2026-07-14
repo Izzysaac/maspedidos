@@ -1,29 +1,31 @@
 ---
 
 const faqs = [
-    {question: "Pregunta 1", answer: "Respuesta 1"},
-    {question: "Pregunta 2", answer: "Respuesta 2"},
-    {question: "Pregunta 3", answer: "Respuesta 3"},
-    {question: "Pregunta 4", answer: "Respuesta 4"},
-    {question: "Pregunta 5", answer: "Respuesta 5"},
-
+    {question: "Cómo es el pago?", answer: "Para iniciar el proyecto se realiza un abono del 50%. El 50% restante se paga una vez entregado el sistema funcionando. El mantenimiento se factura mensualmente y puedes pagar mediante Nequi, llave Bre-B o tarjeta de crédito."},
+    {question: "¿Mis clientes usarán el sistema?", answer: "Sí. El proceso es muy intuitivo. Tus clientes solo abren un enlace, seleccionan los productos y el pedido se envía a tu WhatsApp. No necesitan crear una cuenta ni instalar una aplicación. Aunque al principio es recomendable compartir el enlace para realizar sus pedidos, la experiencia es tan simple que la mayoría se adapta rápidamente."},
+    {question: "¿Cuánto tarda en estar lista mi página de pedidos?", answer: "El tiempo de implementación suele ser de 1 a 2 semanas, dependiendo de la cantidad de productos y la personalización requerida."},
+    {question: "¿Puedo actualizar el menú y los precios?", answer: "Sí. Puedes hacer cambios en el menú, precios o información del negocio. Además, ofrecemos soporte para realizar estos cambios sin costo adicional."},
+    {question: "¿La plataforma gestiona los domiciliarios?", answer: "No. MásPedidos recibe y organiza los pedidos, pero la gestión de los domicilios la realiza el negocio con sus propios repartidores o con el servicio o empresa de entrega de su preferencia."},
+    {question: "¿Debo dejar las apps de delivery para usar MásPedidos?", answer: "No. MásPedidos complementa tus canales actuales. Puedes seguir utilizando plataformas como Rappi o Uber Eats mientras fortaleces un canal propio para recibir pedidos directos, sin comisiones y con tu propia marca."},
+    {question: "¿Hay comisión por cada pedido?", answer: "No. Todos los pedidos llegan directamente a tu WhatsApp sin comisiones por venta. Solo pagas la mensualidad fija contratada."},
+    {question: "¿Los clientes necesitan instalar una aplicación?", answer:"No. Los clientes acceden a tu página desde un link, sirve para cualquier celular, navegador y dispositivo, consultan el menú y realizan el pedido directamente por WhatsApp."}
 ]
 
 ---
 
-<section>
-    <h2>Preguntas frecuentes</h2>
-    <div>
+<section class="bg-slate-50 py-8 px-4">
+    <h2 class="text-center">Preguntas frecuentes</h2>
+    <div class="max-w-125 m-auto">
         {
             faqs.map(item => {
                 return (
-                    <details>
-                        <summary>{item.question}</summary>
+                    <details class="group border-t border-slate-200 py-4">
+                        <summary class="group-open:font-extrabold">{item.question}</summary>
                         {item.answer}
                     </details>
                 )
             })
         }
     </div>
-    <p>Tienes alguna otra pregunta? Contactame por <a href="https://wa.me/573163896572" target="_blank">Whatsapp</a></p>
+    <p>Tienes alguna otra pregunta? Contáctanos por <a href="https://wa.me/573163896572" target="_blank">Whatsapp</a></p>
 </section>

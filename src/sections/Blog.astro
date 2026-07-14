@@ -1,0 +1,33 @@
+---
+
+const articles = [
+    {headline: "Headline 1", subheadline: "Subbeadline 1", image: "/logo-maspedidos.webp", href: "#blog"},
+    {headline: "Headline 2", subheadline: "Subbeadline 2", image: "/logo-maspedidos.webp", href: "#blog"},
+    {headline: "Headline 3", subheadline: "Subbeadline 3", image: "/logo-maspedidos.webp", href: "#blog"},
+    {headline: "Headline 4", subheadline: "Subbeadline 4", image: "/logo-maspedidos.webp", href: "#blog"}
+
+]
+
+---
+
+<section id="blog" class="bg-red-700 py-8 px-3">
+    <h2 class="text-center text-white">Artículos de interés</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {
+            articles.map(item => {
+                return (
+                    <a href={item.href} class="no-underline rounded-md overflow-hidden">
+                        <article class="flex flex-col bg-white text-black">
+                            <img src={item.image} alt="" class="w-full"/>
+                            <div class="p-2">
+                                <h3 class="text-base m-0">{item.headline}</h3>
+                                <p class="text-sm m-0 line-clamp-3">{item.subheadline}</p>
+                            </div>
+                        </article>
+                    </a>
+                )
+            })
+        }
+    </div>
+    <a href="/" class="bg-white px-4 py-3 rounded-lg block m-auto w-fit mt-4 text-black no-underline">Ver más artículos</a>
+</section>

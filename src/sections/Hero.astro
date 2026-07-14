@@ -5,7 +5,7 @@ import Promocion from "@components/Promocion.astro"
 
 import StarSVG from "@assets/star.svg"
 
-const banner = `"https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"`
+const banner = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"
 const squareLogo = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783922991/logosquare-maspedidos_eze2rk.webp"
 const heroImage = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783919483/hero-product_dlbqhr.webp"
 
@@ -18,14 +18,14 @@ const testimonials = [
 ]
 ---
 
-<section class="text-center flex flex-col justify-center items-center px-3 m-auto lg:flex-row lg:gap-4">
+<section class="text-center flex flex-col justify-center items-center px-3 m-auto lg:flex-row lg:gap-4 pb-12">
     <div class="flex flex-col justify-center items-center gap-4 w-full">
-        <div class=`bg-[url(${banner})] aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
+        <div class=`bg-[url("${banner}")] aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
         </div>
         <h1 class="font-extrabold flex flex-col mt-0">
             <span>Vende más domicilios</span>
             <span>para&nbsp;
-                <span class="inline-block -rotate-1 bg-red-700 text-white px-2 py-1 whitespace-nowrap shadow:md">
+                <span class="inline-block -rotate-1 bg-red-700 text-white px-2 py-1 shadow:md">
                     <span class="inline-block rotate-1">tu restaurante</span>
                 </span>
             </span>
@@ -36,7 +36,7 @@ const testimonials = [
             <strong> WhatsApp sin comisiones</strong>
         </p>
         <div>
-            <a class="bg-[#a41c1c] text-white font-extrabold border-0 rounded-xl px-8 py-3 text-base flex justify-center items-center gap-2 w-fit" href="https://wa.me/573163896572?text=Hola,%20quiero%20implementar%20M%C3%A1s%20Pedidos%20para%20mi%20negocio📈" target="_blank">
+            <a class="bg-[#a41c1c] text-white font-extrabold border-0 rounded-xl px-8 py-3 text-base flex justify-center items-center gap-2 w-fit no-underline" href="https://wa.me/573163896572?text=Hola,%20quiero%20implementar%20M%C3%A1s%20Pedidos%20para%20mi%20negocio📈" target="_blank">
                 <img src={squareLogo} alt="logotipo mas pedidos" class="w-6">
                 <span>Quiero más pedidos</span>
             </a>
@@ -62,12 +62,14 @@ const testimonials = [
                 <StarSVG class="h-5 w-5"/>
             </div>
             <p class="-mt-1">
-                <span class="font-extrabold">+30% domicilios nuevos</span><span> constantes</span>
+                <span class="block"><span class="font-bold">+30% domicilios </span> constantes</span>
+                <span class="block"><span class="font-bold">+50% reseñas </span> de clientes</span>
+                <span class="block"><span class="font-bold">+90% rápido </span>toma de pedidos</span>
             </p>
         </div>
     </div>
-    <div class="object-contain flex flex-col items-center">
+    <div class="object-contain flex flex-col items-center w-full">
         <h2 class="font-extrabold bg-red-700 text-white px-4 w-fit">Sistema de venta completo</h2>
-        <img src={heroImage} alt="" class="w-full">
+        <img src={heroImage} alt="" class="w-full max-w-125">
     </div>
 </section>

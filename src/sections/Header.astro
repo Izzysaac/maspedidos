@@ -9,10 +9,10 @@ const header = {
 
 ---
 
-<header class="flex justify-between items-center px-3 box-border">
+<header class="flex justify-between items-center px-3 box-border gap-2">
     <img src={header.logo} alt="logotipo" class="w-40 object-contain">
     <menu class="p-0">
-        <ul class="list-none flex gap-3 p-0">
+        <ul class="list-none flex gap-3 p-0 flex-wrap">
             {
                 header.menu.map(item => {
                     return (
