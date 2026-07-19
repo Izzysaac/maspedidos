@@ -1,0 +1,38 @@
+---
+// Main page hub, menu QR mesa, pedido, reservas, eventos, tienda
+
+const features = [
+    {name: "Página central de negocio", description: "Centraliza todos tus servicios en una página", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp", figcaption: "Figura 1"},
+    {name: "Pedidos a domicilio", description: "Menú digital funcional para generar pedidos por whatsapp", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    {name: "Menú QR para mesa", description: "Actualiza tu menú sin tener que estar imprimiendo cartas cada vez. Llega a todos tus clientes y etc ...", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    {name: "Sistema de reservas", description: "Formulario de reservas sencillo para tus clientes", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    {name: "Promoción de eventos", description: "Incrementa tus eventos con páginas promocionales e informativas", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    {name: "Tienda online", description: "Vende tus productos a nivel nacional sin comisiones", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    {name: "Marketing", description: "Acumula reseñas y destaca en los primeros lugares y recomendaciones en Google Maps", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1784437228/Menupp39_hvlpt6.webp"},
+    
+]
+
+const colors = ["bg-amber-200", "bg-red-200", "bg-orange-200", "bg-blue-200", "bg-green-200", "bg-purple-200"]
+---
+
+<section class="text-center bg-amber-200 pt-8">
+    <p>Funcionalidades</p>
+    <h2>Digitaliza todos tus servicios</h2>
+
+    {
+        features.map( (feature, i) => {
+            return (
+                <div class=`flex flex-col lg:flex-row ${colors[i]} py-16 px-3` >
+                    <div>
+                        <h3 class="m-0">{feature.name}</h3>
+                        <p class="m-0">{feature.description}</p>
+                    </div>
+                    <figure class="box-border order-first">
+                        <img src={feature.image} alt="" class="w-full"/>
+                        <figcaption>{feature.figcaption}</figcaption>
+                    </figure>
+                </div>
+            )
+        })
+    }
+</section>

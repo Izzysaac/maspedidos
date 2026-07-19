@@ -1,0 +1,43 @@
+---
+
+import QuoteSVG from "@assets/quote.svg"
+
+
+const demos = [
+    {href: "#demo", name: "🍔 Comida rápida", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🍕 Pizzerías", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🍗 Pollo y asados", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🍽️ Restaurantes y corrientazos", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "☕ Cafeterías y panaderías", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🥡 Cocinas ocultas", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🍣 Comida internacional", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+    {href: "#demo", name: "🍦 Postres y heladerías", image: "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"},
+]
+---
+
+<section id="demo" class="py-12 text-center px-3">
+    <h2>Mira los sistemas en acción</h2>
+    <p>Ideal para cualquier negocio de comida que reciba pedidos por WhatsApp</p>
+    <div>
+        <ul class="grid grid-cols-2 gap-2 p-0">
+            {
+                demos.map(demo => {
+                    return (
+                        <li class="h-20 rounded-2xl flex items-center justify-center bg-red-700 bg-contain bg-no-repeat" style={{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),url(${demo.image})`}} >
+                            <a href={demo.href} class="no-underline text-white font-extrabold" >{demo.name}</a>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+
+    </div>
+    <div class="text-center py-8">
+    <QuoteSVG class="w-10 h-10 text-red-700"/>
+    <p class="m-1">Pensé que perdí la platica, <strong>pero la multipliqué</strong></p>
+    <div class="flex justify-center items-center gap-2">
+        <img src="https://res.cloudinary.com/dr5knskbb/image/upload/v1774843476/logotipo-gelattos_dgleg9.webp" alt="" class="w-10 h-10 rounded-full">
+        <p class="m-0">Gelattos Heladería</p>
+    </div>
+</div>
+</section>

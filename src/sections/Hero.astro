@@ -4,6 +4,8 @@ import Promocion from "@components/Promocion.astro"
 
 
 import StarSVG from "@assets/star.svg"
+import QuoteSVG from "@assets/quote.svg"
+
 
 const banner = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783921075/banner-lluvia-pedidos_vgsblq.webp"
 const squareLogo = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783922991/logosquare-maspedidos_eze2rk.webp"
@@ -21,8 +23,8 @@ const testimonials = [
 <section class="text-center flex flex-col justify-center items-center px-3 m-auto lg:flex-row lg:gap-4 pb-12">
     <div class="flex flex-col justify-center items-center gap-4 w-full">
         <div 
-        style={{backgroundImage: `url(${banner})`}}
-        class=` aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
+            style={{backgroundImage: `url(${banner})`}}
+            class=`aspect-1983/793 bg-image w-full bg-contain bg-no-repeat max-w-125`>
         </div>
         <!-- bg-[url("${banner}")] -->
         <h1 class="font-extrabold flex flex-col mt-0">
@@ -76,3 +78,12 @@ const testimonials = [
         <img src={heroImage} alt="" class="w-full max-w-125">
     </div>
 </section>
+
+<div class="text-center bg-red-700 text-white py-8">
+    <QuoteSVG class="w-10 h-10"/>
+    <p class="m-1">Pensé que perdí la platica, <strong>pero la multipliqué</strong></p>
+    <div class="flex justify-center items-center gap-2">
+        <img src="https://res.cloudinary.com/dr5knskbb/image/upload/v1774843476/logotipo-gelattos_dgleg9.webp" alt="" class="w-10 h-10 rounded-full">
+        <p class="m-0">Gelattos Heladería</p>
+    </div>
+</div>

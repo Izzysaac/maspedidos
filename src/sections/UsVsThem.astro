@@ -19,7 +19,7 @@ import CrossSVG from "@assets/crossIcon.svg"
 
 ---
 
-<section class="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+<section class="bg-slate-50 py-16 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center">
@@ -50,7 +50,7 @@ import CrossSVG from "@assets/crossIcon.svg"
                         </th>
                         <th
                             class="p-2 sm:p-6 text-sm font-semibold text-slate-500 text-center w-1/3"
-                            >Apps Delivery</th
+                            >Apps Delivery (Rappi/UberEats)</th
                         >
                     </tr>
                 </thead>
@@ -62,7 +62,7 @@ import CrossSVG from "@assets/crossIcon.svg"
                         UsVsThem.map(item => {
                             return (
                                 <tr>
-                                    <td class="px-4 py-3 sm:p-6 text-base text-slate-900">{item.name}</td>
+                                    <td class="px-3 py-3 sm:p-6 text-base text-slate-900">{item.name}</td>
                                     <td class="bg-blue-50/30 border-x border-blue-100">
                                         {item.us  ? <CheckSVG class="w-5 h-5 text-emerald-500 block m-auto"/> : <CrossSVG class="w-5 h-5 text-rose-400 block m-auto"/>} 
                                     </td>

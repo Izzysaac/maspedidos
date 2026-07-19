@@ -1,0 +1,26 @@
+---
+
+const steps = [
+    {number: 1, name: "Agenda una llamada", description: "Conocemos tu negocio, resolvemos tus dudas y te mostramos cómo el sistema puede adaptarse a tus necesidades.", icon: "📅"},
+    {number: 2, name: "Nosotros lo configuramos", description: "Implementamos el sistema por ti para que empieces a vender. No necesitas conocimientos técnicos.", icon: "⚙️"},
+    {number: 3, name: "Empieza a recibir más pedidos", description: "Recibe pedidos automáticos por WhatsApp mientras ahorras tiempo y reduces errores.", icon: "🚀"},
+]
+
+---
+
+<section class="bg-red-700 text-center py-12 text-white px-4">
+    <h2>¿Cómo se implementa?</h2>
+    <p class="m-0">En tan solo 3 pasos</p>
+
+    {
+        steps.map(step => {
+            return (
+                <div class="flex flex-col text-center text-black bg-white rounded-2xl my-6 py-8 px-4 max-w-60 m-auto">
+                    <span class="text-6xl">{step.icon}</span>
+                    <p class="text-xl font-semibold mb-0">{step.number}. {step.name}</p>
+                    <p class="m-1">{step.description}</p>
+                </div>
+            )
+        })
+    }
+</section>

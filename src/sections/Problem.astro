@@ -4,8 +4,8 @@ const logo = "https://res.cloudinary.com/dr5knskbb/image/upload/v1783922991/logo
 
 const solutions = [
     {name: "Pedidos organizados", description: "Recibe pedidos completos y estructurados directamente en WhatsApp.", icon: "order"},
-    {name: "Tu propio canal de ventas", description: "Una página personalizada, sin comisiones y con tu marca.", icon: "deal"},
-    {name: "Más fácil para tus clientes", description: "Un menú digital intuitivo para pedir en pocos pasos.", icon: "happy-face"},
+    {name: "Tu propio canal de ventas", description: "Una página personalizada, sin comisiones y con tu marca vendiendo.", icon: "deal"},
+    {name: "Más fácil para tus clientes", description: "Un menú digital intuitivo y funcional para pedir en pocos pasos.", icon: "happy-face"},
 
 ]
 const cardsColors = ["#212121", "#2b2b2b", "#363636"]
@@ -13,11 +13,11 @@ const cardsColors = ["#212121", "#2b2b2b", "#363636"]
 import DealSVG from "@assets/deal.svg"
 import HappyFaceSVG from "@assets/happy-face.svg"
 import OrderSVG from "@assets/order.svg"
-import { transform } from "astro:schema"
+import QuoteSVG from "@assets/quote.svg"
 
 ---
 
-<section class="py-12 px-3 bg-slate-900 text-white text-center">
+<section class="py-12 px-1.5 bg-slate-900 text-white text-center">
     <h2>Problemas que te hacen <br> perder pedidos</h2>
     <div class="px-3 py-8 bg-red-900/50 w-fit m-auto rounded-md">
         <ul class="p-0 text-neutral-200 leading-8 w-fit flex flex-col items-center justify-center m-auto">
@@ -28,6 +28,10 @@ import { transform } from "astro:schema"
             <li class="list-none">
                 Chats <span class="text-red-400 font-medium"
                     >largos y repetitivos</span>
+            </li>
+            <li class="list-none">
+                Atender por whatsapp <span class="text-red-400 font-medium"
+                    >manualmente</span>
             </li>
             <li class="list-none">
                 Precios <span class="text-red-400 font-medium">altos</span> por intermediarios
@@ -54,8 +58,8 @@ import { transform } from "astro:schema"
         {
             solutions.map( (solution, index) => {
                 const cardColor = cardsColors[index];
-                const offsetClass = index > 0 ? '-ml-1' : '';
-                const rotation = index == 0 ? 'rotateZ(-2deg)' : index == 1 ? 'rotateZ(0deg)' : 'rotateZ(2deg)';
+                const offsetClass = index > 0 ? '-ml-0.5' : '';
+                const rotation = index == 0 ? 'rotateZ(-1deg)' : index == 1 ? 'rotateZ(0deg)' : 'rotateZ(1deg)';
                 return (
                     <div 
                     style={{ backgroundColor: cardColor, transform: rotation }} 
@@ -66,10 +70,18 @@ import { transform } from "astro:schema"
                             { solution.icon === "happy-face" && <HappyFaceSVG class="w-10 h-10"/> }
                         </div>
                         <p class="font-bold text-[15px] md:text-xl px-1">{solution.name}</p>
-                        <p class="text-sm px-2 md:text-base">{solution.description}</p>
+                        <p class="text-sm px-1.5 md:text-base">{solution.description}</p>
                     </div>
                 )
             })
         }
+    </div>
+    <div class="mt-12">
+        <QuoteSVG class="w-10 h-10"/>
+        <p class="m-1">En pocas palabras, <strong>me ahorro un empleado</strong>. Fácilmente puedo gestionar +50 domicilios que llegan al Whatsapp yo solo, más las personas que llegan al local.</p>
+        <div class="flex justify-center items-center gap-2">
+            <img src="https://res.cloudinary.com/dr5knskbb/image/upload/v1782417317/newlogo-broaster_rlravt.webp" alt="" class="w-10 h-10 rounded-full">
+            <p class="m-0">El Broaster del Chef Pitalito</p>
+        </div>
     </div>
 </section>
