@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+
+    const posts = await getCollection("blog", ({data}) => {return data.draft !== true});
+
+    return posts.map((post) => ({
+
+        params: { slug: post.id },
+        props: { post },
+
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+import "../../styles/global.css";
+import HeaderBlog from "@components/HeaderBlog.astro"
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <HeaderBlog />
+    <main class="px-3 py-4">
+        <Content /> 
+    </main>
+</body>
+</html>
+
+<style>
+	@import "tailwindcss";
+
+	@font-face {
+        font-family: "MasPedidos";
+        src: url("maspedidos.woff2") format("woff2");
+		font-weight: 200 800;
+		font-style: normal;
+    }
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: "MasPedidos", sans-serif;
+		scroll-behavior: smooth;
+	}
+</style>

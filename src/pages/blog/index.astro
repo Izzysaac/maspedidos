@@ -1,0 +1,103 @@
+---
+import "../../styles/global.css";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+});
+
+import HeaderBlog from "@components/HeaderBlog.astro"
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/webp" href="/logo-maspedidos.webp" />
+        <link rel="icon" href="/logo-maspedidos.webp" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Más Pedidos</title>
+    </head>
+    <body>
+		<HeaderBlog />
+        <main>
+            <h1 class="text-center font-semibold text-xl">Blog</h1>
+            <section class="px-3 py-8">
+                <ul class="flex flex-col gap-4">
+                    {
+                        allPosts.map((post: any) => {
+                            return (
+                                <li>
+                                    <article class="relative border-b border-slate-200 py-4">
+                                        <header class="flex items-center justify-between gap-2">
+											<h2 class="text-lg font-semibold">
+												<a href={`/blog/${post.id}/`} class="link">{post.data.title}</a>
+											</h2>
+                                            <figure class="aspect-square w-1/5 min-w-1/5 flex justify-center items-center">
+                                                <img
+                                                    src={post.data.image.url}
+                                                    alt={post.data.image.alt}
+													class="object-cover"
+                                                />
+                                            </figure>
+                                        </header>
+                                        <ul class="flex gap-2">
+                                            {post.data.tags.map((tag: any) => (
+                                                <li>
+                                                    <span class="text-xs border px-1">
+                                                        {tag}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <p>{post.data.description}</p>
+                                        <time
+                                            datetime={post.data.pubDate.toISOString()}
+											class="text-xs text-right block"
+                                        >
+                                            {post.data.pubDate.toLocaleDateString("es-ES", {
+                                                year: "numeric",
+                                                month: "long",
+                                                day: "numeric",
+                                            })}
+                                        </time>
+                                    </article>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+            </section>
+        </main>
+        <slot />
+        <footer></footer>
+    </body>
+</html>
+
+<style>
+    @import "tailwindcss";
+    @font-face {
+        font-family: "MasPedidos";
+        src: url("maspedidos.woff2") format("woff2");
+        font-weight: 200 800;
+        font-style: normal;
+    }
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "MasPedidos", sans-serif;
+        scroll-behavior: smooth;
+    }
+	.link::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1; /* Hace que el área clicable cubra toda la tarjeta */
+	}
+</style>
